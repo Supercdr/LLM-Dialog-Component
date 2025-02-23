@@ -1,0 +1,12 @@
+.chat-dialog {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.chatInput{
+  position: relative;
+  
+}
