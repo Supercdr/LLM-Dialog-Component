@@ -2,11 +2,25 @@
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
+  /* 允许垂直滚动 */
+  overflow-y: auto; 
   display: flex;
   flex-direction: column;
+  /* 设置最小高度，保证有滚动空间 */
+  min-height: 300px; 
 }
-.chatInput{
-  position: relative;
-  
+
+/* 消息区域，占用剩余空间 */
+.messages {
+  margin-bottom: 100px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.chatInput {
+  position: fixed;
+  background-color: white;
+  /* 把 chatInput 推到容器底部 */
+  bottom: 0;
+  width: 800px;
 }

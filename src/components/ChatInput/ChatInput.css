@@ -4,7 +4,6 @@
   align-items: center;
   padding: 12px;
   width: 95%;
-  border:1px solid #ddd;
   border-radius: 15px;
 }
 /* 文本输入框样式 */
@@ -26,4 +25,134 @@
 
 .chat-input svg{
   cursor: pointer;
+}
+
+
+.upload-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.upload-icon {
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.upload-icon.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(0.8);
+}
+
+.loading-circle {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 1.5s linear infinite;
+}
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.uploading-text {
+  margin-left: 8px;
+  color: #666;
+  font-size: 0.9em;
+}
+/* 发送状态样式 */
+.sending-status {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.loading-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0567c6;
+  animation: bounce 1.4s infinite ease-in-out;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% { 
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6px);
+  }
+}
+
+/* 禁用发送按钮时的样式 */
+.send-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* 新增可取消样式 */
+.cancelable {
+  cursor: pointer;
+  transition: background 0.3s;
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+
+.cancelable:hover {
+  background: rgba(5, 103, 198, 0.1);
+}
+
+.cancel-hint {
+  margin-left: 8px;
+  color: #0567c6;
+  font-size: 0.9em;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.cancelable:hover .cancel-hint {
+  opacity: 1;
+}
+
+.loading-dots {
+  display: flex;
+  align-items: center;
+}
+
+.cancel-text {
+  margin-left: 8px;
+  color: #0567c6;
+  font-size: 0.9em;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.cancelable:hover .cancel-text {
+  opacity: 1;
+}
+
+.dot {
+  transition: transform 0.3s;
+}
+
+.cancelable:hover .dot {
+  transform: scale(1.2);
+}
+.icon--sending {
+  /* 例如设置按钮为灰色，或者添加加载动画等样式 */
+  opacity: 0.5;
+  cursor: not-allowed;
 }
